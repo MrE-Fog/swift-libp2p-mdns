@@ -145,6 +145,9 @@ public class MulticastPeerDiscovery:Discovery, PeerDiscovery, LifecycleHandler {
             /// Switch our state to .starting
             self._state = .starting
             
+            /// Update our logging state
+            self.logger.logLevel = application.logger.logLevel
+            
             /// Create an event loop group for our UDP server to use
             self.group = MultiThreadedEventLoopGroup(numberOfThreads: 1)
 
